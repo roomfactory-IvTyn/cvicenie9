@@ -1,0 +1,21 @@
+:root { --fon: #eef1f7; --karta: white; --text: #222; --modra: #2b4c9b; --linia: #ddd; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --fon: #11152a; --karta: #1a2038; --text: #e4e8f5; --modra: #5b7fd6; --linia: #2c3455; }
+}
+
+body { font-family: Arial; background: var(--fon); color: var(--text); margin: 20px; }
+
+h1 { color: var(--modra); }
+
+.karta { background: var(--karta); padding: 15px; margin-bottom: 20px; }
+
+input { padding: 6px; margin: 4px 0; background: var(--fon); color: var(--text); border: 1px solid var(--linia); }
+
+button { background: var(--modra); color: white; border: none; padding: 7px 12px; cursor: pointer; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--linia); }
+
+.dobre { color: green; }
+.zle { color: red; }

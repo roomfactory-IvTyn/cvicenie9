@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidencia kníh</title>
+
+  <!-- téma (svetlá / tmavá) sa nastaví ešte pred vykreslením stránky -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+  <main class="container wide">
+    <h1>Evidencia kníh</h1>
+    <p class="lead">Pridávajte, upravujte a odstraňujte knihy v databáze.</p>
+
+    <h2>Nová kniha</h2>
+    <form id="novaKniha" class="form-box book-form">
+      <div class="field grow">
+        <label for="nazov">Názov</label>
+        <input id="nazov" type="text" placeholder="Názov knihy" required>
+      </div>
+      <div class="field">
+        <label for="autor">Autor</label>
+        <input id="autor" type="text" placeholder="Meno autora" required>
+      </div>
+      <div class="field">
+        <label for="rok">Rok vydania</label>
+        <input id="rok" type="number" placeholder="2024" required>
+      </div>
+      <div class="field">
+        <label for="cena">Cena (€)</label>
+        <input id="cena" type="number" step="0.01" min="0" placeholder="0.00" required>
+      </div>
+      <button type="submit">Uložiť knihu</button>
+    </form>
+
+    <p id="info" class="info" role="status"></p>
+
+    <h2>Knihy v databáze <span id="pocet" class="count">0</span></h2>
+    <div class="table-wrap">
+      <table class="books-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Názov</th>
+            <th>Autor</th>
+            <th>Rok</th>
+            <th>Cena (€)</th>
+            <th>Akcia</th>
+          </tr>
+        </thead>
+        <tbody id="telo"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="knihy.js"></script>
+</body>
+</html>
